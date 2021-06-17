@@ -1,0 +1,11 @@
+[user]
+	name = Alfredo Sánchez Alberca
+	email = asalber@gmail.com
+[color]
+	ui = auto
+[merge]
+	conflictstyle = diff3
+[alias]
+	add-commit = !git add -A && git commit
+[init]
+	defaultBranch = main
