@@ -15,7 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term kitty
-set $brower firerox
+set $browser brave
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -87,8 +87,8 @@ input * {
     bindsym Ctrl+q kill
 
     # Start your launcher
-    #bindsym $mod+d exec $menu
-    bindsym $mod+d exec --no-startup-id rofi -show run  -m -1 
+    # bindsym $mod+d exec $menu
+
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -293,7 +293,10 @@ for_window [class="info|Mate-color-select|gcolor2|timesup|QtPass|GtkFileChooserD
 
 
 # Startup programs
-exec_always feh --bg-scale ~/molinos_nevados_negativo.jpg
+exec_always kitty
+exec_always dolphin
+# exec_always code
+exec_always brave
 
 # Define windows in workspace 2
 exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/alf/.config/sway/workspace-2.json'"
@@ -306,3 +309,10 @@ bindswitch --reload --locked lid:off output eDP-1 enable
 bindsym $mod+Next exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym $mod+Prior exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym $mod+Home exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Key bindins
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
+bindsym $mod+x exec --no-startup-id ~/.config/rofi/powermenu/type-2/powermenu.sh
+bindsym $mod+Ctrl+c exec code
+bindsym $mod+Ctrl+b exec brave
+bindsym $mod+Ctrl+d exec dolphin
